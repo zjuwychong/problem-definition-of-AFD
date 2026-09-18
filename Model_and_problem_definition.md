@@ -165,12 +165,10 @@ $$
 **优化目标：**
 
 $$
-\begin{aligned}
 \operatorname{minimize}
 &\quad \max_i F_i\\
 \text{subject to}
 &\quad F_i-a_i\le\Delta_i,\qquad\forall i.
-\end{aligned}
 $$
 
 “合法”指完成全部必需调用，并遵守前述计算链、FIFO 合批及 GPU 执行规则。后续 token 的 $a_i$ 随前一个 token 的实际输出产生。
