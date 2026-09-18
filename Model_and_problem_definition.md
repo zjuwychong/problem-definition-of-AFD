@@ -141,7 +141,7 @@ AMoE 公布的 defragging 评分使用队列数量和层间分布，未将逐 to
 4. **逐 token 的 TPOT 约束。**
 
    $$
-   \boxed{F_i-a_i\le\Delta_i\qquad\forall i.}
+   F_i-a_i\le\Delta_i\qquad\forall i.
    $$
 
    每个 token 的输出间隔都满足其所属请求的 TPOT 上限。这个间隔包含队列等待、专家执行、回传、汇合及输出尾部。
@@ -151,7 +151,7 @@ AMoE 公布的 defragging 评分使用队列数量和层间分布，未将逐 to
    将固定观察原点平移到 0，在完成全部既定 token、满足上述约束的前提下，最小化
 
    $$
-   \boxed{\max_i F_i.}
+   \max_i F_i.
    $$
 
    固定输出数下，这对应完成吞吐的最大化。
@@ -165,14 +165,12 @@ AMoE 公布的 defragging 评分使用队列数量和层间分布，未将逐 to
 **优化目标：**
 
 $$
-\boxed{
 \begin{aligned}
 \operatorname{minimize}
 &\quad \max_i F_i\\
 \text{subject to}
 &\quad F_i-a_i\le\Delta_i,\qquad\forall i.
 \end{aligned}
-}
 $$
 
 “合法”指完成全部必需调用，并遵守前述计算链、FIFO 合批及 GPU 执行规则。后续 token 的 $a_i$ 随前一个 token 的实际输出产生。
