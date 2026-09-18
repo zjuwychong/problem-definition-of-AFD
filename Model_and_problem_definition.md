@@ -132,17 +132,17 @@ AMoE 公布的 defragging 评分使用队列数量和层间分布，未将逐 to
 
    对队列 $(l,e)$ 上启动的 batch $b$：
 
-   $$
-   c_b=s_b+\tau_{l,e}(\lvert b\rvert).
-   $$
+$$
+c_b=s_b+\tau_{l,e}(\lvert b\rvert).
+$$
 
    $s_b$ 不早于观察原点，且每个成员的完整输入都必须在 $s_b$ 时已经实际到达。batch 在 $[s_b,c_b)$ 内不可抢占；同一 GPU 上所有层、所有专家的 batch 区间不得重叠。GPU 可以主动等待。
 
 4. **逐 token 的 TPOT 约束。**
 
-   $$
-   F_i-a_i\le\Delta_i\qquad\forall i.
-   $$
+$$
+F_i-a_i\le\Delta_i\qquad\forall i.
+$$
 
    每个 token 的输出间隔都满足其所属请求的 TPOT 上限。这个间隔包含队列等待、专家执行、回传、汇合及输出尾部。
 
@@ -150,9 +150,9 @@ AMoE 公布的 defragging 评分使用队列数量和层间分布，未将逐 to
 
    将固定观察原点平移到 0，在完成全部既定 token、满足上述约束的前提下，最小化
 
-   $$
-   \max_i F_i.
-   $$
+$$
+\max_i F_i.
+$$
 
    固定输出数下，这对应完成吞吐的最大化。
 
